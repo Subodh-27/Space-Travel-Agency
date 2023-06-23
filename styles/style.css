@@ -58,8 +58,8 @@ header {
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
-  font-weight: 600;
-  font-size: 22px;
+  font-weight: 800;
+  font-size: 26px;
   color: var(--hover-color);
 }
 
@@ -471,7 +471,7 @@ header.sticky {
 
 /* Scroll Animation */
 
-.scroll-left {
+/* .scroll-left {
   opacity: 0;
   transform: translateX(10px);
 }
@@ -501,7 +501,7 @@ header.sticky {
   transform: translateX(0);
   transform: translateY(0);
   transition: all 2s;
-}
+} */
 
 /* Keyframes */
 
