@@ -1,6 +1,6 @@
 import '../styles/style.css';
 
-import loadRoot from './utils/load-root';
+// import loadRoot from './utils/load-root';
 
 
 // Active Header Sticky
@@ -13,7 +13,7 @@ window.addEventListener("scroll", () => {
 
 // Active Scroll Menu
 
-const liLink = document.querySelector('header ul li a');
+const liLink = document.querySelectorAll('header ul li a');
 
 const section = document.querySelectorAll('section');
 
@@ -51,30 +51,36 @@ window.onscroll = () => {
 
 // Scroll Animation
 
-// const observer = new IntersectionObserver((entries) => {
-//     entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//             entry.target.classList.add("show-items");
-//         } else {
-//             entry.target.classList.remove("show-items");
-//         }
-//     });
-// });
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show-items");
+        } else {
+            entry.target.classList.remove("show-items");
+        }
+    });
+});
 
-// const scrollLeft = document.querySelectorAll(".scroll-left");
-// scrollLeft.forEach((el) => observer.observe(el));
+const scrollLeft = document.querySelectorAll(".scroll-left");
+scrollLeft.forEach((el) => observer.observe(el));
 
-// const scrollRight = document.querySelectorAll(".scroll-right");
-// scrollRight.forEach((el) => observer.observe(el));
+const scrollRight = document.querySelectorAll(".scroll-right");
+scrollRight.forEach((el) => observer.observe(el));
 
-// const scrollTop = document.querySelectorAll(".scroll-top");
-// scrollTop.forEach((el) => observer.observe(el));
+const scrollTop = document.querySelectorAll(".scroll-top");
+scrollTop.forEach((el) => observer.observe(el));
 
-// const scrollBottom = document.querySelectorAll(".scroll-bottom");
-// scrollBottom.forEach((el) => observer.observe(el));
+const scrollBottom = document.querySelectorAll(".scroll-bottom");
+scrollBottom.forEach((el) => observer.observe(el));
 
-// const scrollScale = document.querySelectorAll(".scroll-scale");
-// scrollScale.forEach((el) => observer.observe(el));
+const scrollScale = document.querySelectorAll(".scroll-scale");
+scrollScale.forEach((el) => observer.observe(el));
 
 
-loadRoot();
+// loadRoot();
+
+console.log(window.location);
+
+window.addEventListener("beforeunload", (event) => {
+    window.location.href = '#';
+});
