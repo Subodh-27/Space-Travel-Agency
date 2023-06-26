@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
   text-decoration: none;
   list-style: none;
 }
@@ -33,6 +32,7 @@
 body {
   font-family: "Outfit", sans-serif;
   background-image: url(/images/background.jpg);
+  background-color: #070e21;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -225,7 +225,7 @@ img.moon-light {
   width: 200px;
   padding: 2rem 1.5rem 2rem;
   text-align: center;
-  background-image: url(images/cardBg.jpg);
+  background-image: url(/images/cardBg.jpg);
   background-position: center;
   background-size: cover;
   border-radius: 10px;
@@ -608,6 +608,8 @@ header.sticky {
 
   .open {
     top: 100%;
+    position: absolute;
+    z-index: 11;
   }
 
   .navlist li {

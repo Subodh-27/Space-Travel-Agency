@@ -11,23 +11,59 @@ window.addEventListener("scroll", () => {
 });
 
 
+const liLink = document.querySelectorAll("header ul li a");
+
+liLink.forEach((element) => {
+    element.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetElement = e.target.href.split("#")[1];
+        window.scrollTo({
+            top: Math.round(
+                document.querySelector(`#${targetElement}`).getBoundingClientRect().top + document.documentElement.scrollTop
+            ),
+            behavior: "smooth",
+        });
+    });
+});
+
+const sections = document.querySelectorAll("section");
+const options = {
+    threshold: 0.7,
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        const id = entry.target.id;
+        const el = document.body.querySelector('[href="#' + id + '"]');
+        if (entry.isIntersecting) {
+            el.classList.add("active");
+        } else {
+            el.classList.remove("active");
+        }
+    });
+}, options);
+
+sections.forEach((section) => {
+    sectionObserver.observe(section);
+});
+
 // Active Scroll Menu
 
-const liLink = document.querySelectorAll('header ul li a');
+// const liLink = document.querySelectorAll('header ul li a');
 
-const section = document.querySelectorAll('section');
+// const section = document.querySelectorAll('section');
 
-function activeMenu() {
-    let secLength = section.length;
+// function activeMenu() {
+//     let secLength = section.length;
 
-    while (--secLength && window.scrollY + 500 < section[secLength].offsetTop) {
-        liLink.forEach(sec => sec.classList.remove('active'));
-        liLink[secLength].classList.add('active');
-    }
-}
+//     while (--secLength && window.scrollY + 500 < section[secLength].offsetTop) {
+//         liLink.forEach(sec => sec.classList.remove('active'));
+//         liLink[secLength].classList.add('active');
+//     }
+// }
 
-activeMenu();
-window.addEventListener('scroll', activeMenu);
+// activeMenu();
+// window.addEventListener('scroll', activeMenu);
 
 
 
@@ -76,11 +112,8 @@ scrollBottom.forEach((el) => observer.observe(el));
 const scrollScale = document.querySelectorAll(".scroll-scale");
 scrollScale.forEach((el) => observer.observe(el));
 
-
-// loadRoot();
-
-console.log(window.location);
-
-window.addEventListener("beforeunload", (event) => {
-    window.location.href = '#';
-});
+//
+window.onbeforeunload = function () {
+    document.querySelector("#wrapper").style.display = "none";
+    window.scrollTo(0, 0);
+};
