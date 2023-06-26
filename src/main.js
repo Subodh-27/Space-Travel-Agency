@@ -1,6 +1,6 @@
 import '../styles/style.css';
 
-// import loadRoot from './utils/load-root';
+import loadRoot from './utils/load-root';
 
 
 // Active Header Sticky
@@ -15,7 +15,7 @@ const liLink = document.querySelectorAll("header ul li a");
 
 liLink.forEach((element) => {
     element.addEventListener("click", (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const targetElement = e.target.href.split("#")[1];
         window.scrollTo({
             top: Math.round(
@@ -46,6 +46,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach((section) => {
     sectionObserver.observe(section);
 });
+
 
 // Active Scroll Menu
 
@@ -112,8 +113,14 @@ scrollBottom.forEach((el) => observer.observe(el));
 const scrollScale = document.querySelectorAll(".scroll-scale");
 scrollScale.forEach((el) => observer.observe(el));
 
-//
-window.onbeforeunload = function () {
-    document.querySelector("#wrapper").style.display = "none";
-    window.scrollTo(0, 0);
-};
+
+
+// To Root on Refresh
+loadRoot();
+
+
+
+// window.onbeforeunload = function () {
+//     document.querySelector("#wrapper").style.display = "none";
+//     window.scrollTo(0, 0);
+// };
