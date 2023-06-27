@@ -226,7 +226,8 @@ img.moon-light {
 }
 
 .container .flight-box {
-  width: 200px;
+  width: 18.75rem;
+  height: 18.75rem;
   padding: 2rem 1.5rem 2rem;
   text-align: center;
   background-image: url(/images/cardBg.jpg);
@@ -236,6 +237,12 @@ img.moon-light {
   color: #fff;
   z-index: 2;
   margin: 2rem 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow-y: visible;
 }
 
 .flight-box img {
@@ -338,7 +345,7 @@ img.moon-light {
 
 .shop .flight-box {
   text-align: left;
-  width: 210px;
+  width: 250px;
 }
 
 .shop .flight-box img {
@@ -366,9 +373,14 @@ img.moon-light {
   margin-top: 2rem;
 }
 
+.shop .marsBtn {
+  font-size: 1.2rem;
+}
+
 .shop-btn .marsBtn {
   height: 40px;
   line-height: 40px;
+  font-size: 1.5rem;
 }
 
 /* Experience Section CSS */
@@ -615,6 +627,14 @@ header.sticky {
     position: absolute;
   }
 
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+
   .navlist li {
     padding: 1.2rem;
     width: 100%;
@@ -653,6 +673,7 @@ header.sticky {
 
   .container .flight-box {
     width: 60%;
+    height: 100%;
   }
 
   .earth-rotate img.earth {

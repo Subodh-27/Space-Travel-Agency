@@ -3,6 +3,7 @@ import '../styles/style.css';
 import loadRoot from './utils/load-root';
 
 
+
 // Active Header Sticky
 
 const header = document.querySelector('header');
@@ -48,34 +49,21 @@ sections.forEach((section) => {
 });
 
 
-// Active Scroll Menu
-
-// const liLink = document.querySelectorAll('header ul li a');
-
-// const section = document.querySelectorAll('section');
-
-// function activeMenu() {
-//     let secLength = section.length;
-
-//     while (--secLength && window.scrollY + 500 < section[secLength].offsetTop) {
-//         liLink.forEach(sec => sec.classList.remove('active'));
-//         liLink[secLength].classList.add('active');
-//     }
-// }
-
-// activeMenu();
-// window.addEventListener('scroll', activeMenu);
-
 
 
 // Active Menu Icon
 
 const menuIcon = document.querySelector("#menu-icon");
 const navlist = document.querySelector(".navlist");
+const homeImage = document.querySelector('.home-img');
+const homeText = document.querySelector('.home-text');
+
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle("bx-x");
     navlist.classList.toggle("open");
+    homeImage.classList.toggle("hide");
+    homeText.classList.toggle("hide");
 };
 
 // Remove Menu List
@@ -83,6 +71,8 @@ menuIcon.onclick = () => {
 window.onscroll = () => {
     menuIcon.classList.remove("bx-x");
     navlist.classList.remove("open");
+    homeImage.classList.toggle("show");
+    homeText.classList.toggle("show");
 };
 
 
