@@ -140,6 +140,10 @@ header .navlist {
   display: none;
 }
 
+#menu-icon:hover {
+  cursor: pointer;
+}
+
 section {
   padding: 100px 12%;
 }
@@ -609,7 +613,6 @@ header.sticky {
   .open {
     top: 100%;
     position: absolute;
-    z-index: 11;
   }
 
   .navlist li {
